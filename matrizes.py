@@ -1,6 +1,6 @@
 def cria(num_linhas, num_colunas, valor = 0):
     '''
-    (int, int, valor) -> matriz(lista de linhas)
+    (int, int, valor) -> matriz
     Cria e retorna ums matriz com num_linhas linhas e num_colunas
     colunas em que cada elemento é passado por parâmetro de
     entrada.
@@ -22,6 +22,13 @@ def cria(num_linhas, num_colunas, valor = 0):
 
 
 def multiplica(a, b):
+    '''
+    (matriz, matriz) -> matriz
+    Recebe duas matrizes por parâmetro de entrada
+    e retorna a matriz resultante da multiplicação
+    da primeira pela segunda.
+    '''
+    
     assert sao_multiplicaveis(a, b)
 
     c = []
@@ -39,6 +46,12 @@ def multiplica(a, b):
 
 
 def le_matriz():
+    '''
+    () -> matriz
+    Lê a quantidade de linhas e colunas para formar
+    e retornar a matriz desejada.
+    '''
+    
     tot_linhas = int(input("Digite o número de linhas da matriz: "))
     tot_colunas = int(input("Digite o número de colunas da matriz: "))
     matriz = cria_matriz(tot_linhas, tot_colunas)
@@ -47,10 +60,21 @@ def le_matriz():
 
 
 def dimensoes(matriz):
+    '''
+    (matriz) -> str
+    Retorna uma string formatada com as dimensões
+    da matriz.
+    '''
+    
     return "{} X {}".format(len(matriz), len(matriz[0]))
 
 
 def contar_linhas_nulas(matriz):
+    '''
+    (matriz) -> int
+    Retorna a quantidade de linhas nulas da matriz.
+    '''
+    
     tot_linhas = 0
     
     for i in range(len(matriz)):
@@ -66,6 +90,11 @@ def contar_linhas_nulas(matriz):
 
 
 def contar_colunas_nulas(matriz):
+    '''
+    (matriz) -> int
+    Retorna a quantidade de linhas colunas da matriz.
+    '''
+    
     tot_colunas = 0
     
     for j in range(len(matriz[0])):
@@ -81,10 +110,24 @@ def contar_colunas_nulas(matriz):
 
 
 def sao_multiplicaveis(m1, m2):
+    '''
+    (matriz, matriz) -> bool
+    Retorna valor lógico True caso a primeira
+    matriz possa multiplicar a segunda e
+    retorna False, caso contrário.
+    '''
+    
     return len(m1[0]) == len(m2)
 
 
 def is_simetrica(matriz):
+    '''
+    (matriz) -> bool
+    Retorna valor lógico True caso a matriz
+    seja simétrica e retorna False,
+    caso contrário.
+    '''
+    
     flag = True
     
     for i in range(len(matriz)):
@@ -96,6 +139,13 @@ def is_simetrica(matriz):
 
 
 def formata(matriz):
+    '''
+    (matriz) -> str
+    Retorna uma string formatada
+    que apresenta a matriz passada por
+    parâmetro de entrada.
+    '''
+    
     tot_linhas = len(matriz)
     tot_colunas = len(matriz[0])
     matriz_formatada = ""
@@ -111,11 +161,24 @@ def formata(matriz):
 
                 
 def tem_mesmas_dimensoes(m1, m2):
+    '''
+    (matriz, matriz) -> bool
+    Retorna valor lógico True caso as matrizes
+    possuam as mesmas dimensões e retorna False,
+    caso contrário.
+    '''
+    
     return len(m1) == len(m2) and len(m1[0]) == len(m2[0])
 
 
 
 def soma(m1, m2):
+    '''
+    (matriz, matriz) -> matriz
+    Retorna a soma das matrizes passadas por
+    parâmetro de entrada.
+    '''
+    
     assert tem_mesmas_dimensoes(m1, m2)
 
     matriz_resultante = []
@@ -130,6 +193,12 @@ def soma(m1, m2):
 
 
 def subtrai(m1, m2):
+    '''
+    (matriz, matriz) -> matriz
+    Retorna a subtração da primeira matriz
+    pela segunda.
+    '''
+    
     assert tem_mesmas_dimensoes(m1, m2)
 
     matriz_resultante = []
